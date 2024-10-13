@@ -4,7 +4,7 @@ import conf from './conf/conf';
 import authService from './appwrite/auth';
 import { useDispatch } from 'react-redux';
 import { login, logout } from './store/authSlice';
-
+import { Header , Footer} from './components/index'
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -26,11 +26,17 @@ function App() {
       });
   }, [dispatch]);
   debugger;
-  return loading ? (
-    <div className='min-h-sc'>
-      <h1>Blog App with Appwrite</h1>
-      <p>Loading...</p>
-    </div>
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap'>
+      <div className='w-full block bg-blue-500'>
+      <Header/>
+        <main>
+          TODO: {/* <Outlet /> */}
+        </main>
+        <Footer/>
+        </div>
+
+      </div>
   ) : (
     <div>
       {/* Render your app when not loading */}
